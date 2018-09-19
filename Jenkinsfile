@@ -1,21 +1,22 @@
 pipeline {
     agent any 
+    // all source and objects will be picked up from the github repo which contains this file
     stages {
         stage('Clean') { 
             steps {
-                sh "mvn clean -f my-app"
+                sh "mvn clean"
                 // 
             }
         }
         stage('Maven test command') { 
             steps {
-                sh "mvn test -f my-app"
+                sh "mvn test"
                 // 
             }
         }
         stage('Maven Deploy') { 
             steps {
-                   sh "mvn package -f my-app"
+                   sh "mvn package"
                 // 
             }
         }
